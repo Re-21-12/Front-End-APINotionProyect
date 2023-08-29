@@ -28,9 +28,9 @@ con el contenido serializado-> se usa un DTO para serialiar y que sea mas facil 
 En los header hay que definir la id de la BD por que sera el padre y cada fila contara como una hoja para la estructura de notion
 
 --------------------------------------------------------------------------------------------------
-Auth: secret_EQHJJsK52S3L6B2ad8tFJmtj8I5uPR3WglPPKFrg40b
-POSTMAN LINK : https://web.postman.co/workspace/My-Workspace~08fc3363-1b91-44ab-8066-4de54f42ae3b/request/28685331-60ebb90a-914e-42ee-9521-13c5d396e4d9
-DB LINK: 2eecf8516a124a69aa9607315c9d5617
+Auth: tu token
+POSTMAN LINK : https://web.postman.co
+DB LINK: el id de tu db
 Authorizacion: Token barear 
 Referencias de la API status code: https://notion.notion.site/API-Reference-914a8531daa84753aacdf01274df8ec5
 Info DB : https://developers.notion.com/reference/database#all-databases
@@ -81,7 +81,7 @@ Back-End
 1. Como no se pueden realizar peticiones desde el cliente a la API por problemas del CORS vamos a usar una api de servidor para mandar peticiones a la api y no tener problemas
 2. Creamos los controladores en la api de C# AspNet
 3. Para realizar peticiones a la api debemos colocar los headers 
-4. GET https://api.notion.com/v1/databases/{databaseId}
+4. POST https://api.notion.com/v1/databases/{databaseId}
 Front-End
 1. Crear nuevo proyecto	
 2. Crear estructura de carpetas/modulos[Por ultimo vamos a dejar el shared(footer/navigation)]
