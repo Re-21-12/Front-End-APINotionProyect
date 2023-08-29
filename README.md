@@ -64,8 +64,8 @@ Comandos Angular utilizados:
   - Realizada: `properties.hecha: checkbox`
 
 ## Objetivos del Proyecto
-- **Hecho:** Formulario para crear tareas
-- **Pendiente:** Formulario para modificar tareas
+- **HECHO:** Formulario para crear tareas
+- **HECHO:** Formulario para modificar tareas
 - **Hecho:** Ver tareas
 - **Hecho:** Ver tareas por ID/nombre (barra de búsqueda)
 
@@ -98,7 +98,7 @@ El formulario de modificación deberá incluir:
 1. Debido a restricciones de CORS, usamos una API de servidor para comunicarnos con la API de Notion.
 2. Creamos controladores en una API en C# AspNet.
 3. Se incluyen los encabezados en las peticiones a la API.
-4. Realizamos una petición GET a `https://api.notion.com/v1/databases/{databaseId}`.
+4. Realizamos una petición POST a `https://api.notion.com/v1/databases/{databaseId}`.
 
 ## Front-End
 1. Creamos un nuevo proyecto Angular.
