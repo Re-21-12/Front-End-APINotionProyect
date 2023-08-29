@@ -107,5 +107,9 @@ El formulario de modificación deberá incluir:
 4. Instalamos la dependencia de Notion: `npm i @notionhq/client` desde [npmjs.com/package/@notionhq/client](https://www.npmjs.com/package/@notionhq/client).
 5. Creamos el formulario.
 
+# Despliegue
+- Para el despliegue use Netlify todo se debe dejar por defecto a exception de _dis/_.
+1. ya en dist primero deberemos ejecutuar npm run build o ng build para lanzar a produccion ahi obtendremos un *Nombre* este nombre lo colocaremos despues de la barra / y ya podremos desplegar nuestro proyecto.
+
 ##  Dudas?
 - Cualquier duda puede ser consultada 
