@@ -1,0 +1,78 @@
+<app-navigation/>
+<div class="card">
+  <form class="card-body" (submit)="onSubmit()" #form="ngForm">
+    <label>Titulo</label>
+    <input
+      name="titulo"
+      class="form-control"
+      type="text"
+      placeholder="Titulo "
+      [(ngModel)]="Fila.titulo"
+      required
+      #titulo="ngModel"
+    />
+    
+    <p
+      class="alert alert-danger mt-2"
+      [hidden]="titulo.valid || titulo.pristine"
+    >
+      Debe escribir un titulo
+    </p>
+    <label>Descripcion</label>
+    <input
+      name="descripcion"
+      class="form-control"
+      type="text"
+      placeholder="Descripcion"
+      [(ngModel)]="Fila.descripcion"
+      #descripcion = "ngModel"
+    />
+    <p
+    class="alert alert-danger mt-2"
+    [hidden]="descripcion.valid || descripcion.pristine"
+  >
+    Debe escribir una descripcion
+  </p>
+    <label>Autor</label>
+    <input
+      name="autor"
+      class="form-control"
+      type="text"
+      placeholder="Autor"
+      [(ngModel)]="Fila.autor"
+      required
+      #autor="ngModel"
+    />
+    <p class="alert alert-danger mt-2" [hidden]="autor.valid || autor.pristine">
+      Debe ingresar su nombre
+    </p>
+    <label>Fecha de realizacion</label>
+    <input
+      name="fecha_de_realizacion"
+      title="fecha_de_realizacion"
+      type="datetime-local"
+      class="form-control"
+      [(ngModel)]="Fila.fecha_de_realizacion"
+      #fechaDeRealizacion="ngModel"
+      required
+    />
+    <p
+      class="alert alert-danger mt-2"
+      [hidden]="
+        fechaDeRealizacion.valid ||
+        fechaDeRealizacion.pristine 
+      "
+    >
+      Debe seleccionar una fecha de realización
+    </p>
+    <button
+      type="submit"
+      class="btn btn-primary mt-2"
+      [disabled]="form.invalid"
+    >
+      Agregar Nueva Tarea
+    </button>
+  </form>
+<app-footer/>
+
+</div>

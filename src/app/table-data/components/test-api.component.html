@@ -1,0 +1,154 @@
+<div [ngClass]="{ 'dark-mode': isDarkMode }" class="">
+  <app-navigation />
+  <!-- Seatch  -->
+  <div class="row">
+    <!-- Columna para el campo de búsqueda -->
+    <div class="col-md-6">
+      <nav class="form-inline my-2 my-lg-0">
+        <input
+          aria-label="Search"
+          type="search"
+          placeholder="Buscar Titulo"
+          [(ngModel)]="searchTerm"
+          (input)="filterData()"
+        />
+        <button class="btn btn-outline-success btn-sm" (click)="filterData()">
+          Buscar
+        </button>
+        <button class="btn btn-outline-danger btn-sm" (click)="getDatabaseItems()">
+          Limpiar
+        </button>
+      </nav>
+    </div>
+  
+    <!-- Columna para el botón de cambio de tema -->
+    <div class="col-md-6 text-right d-flex justify-content-end align-items-start">
+      <button class="btn btn-outline-primary btn-sm" (click)="toggleDarkMode()">
+        <ng-container *ngIf="isDarkMode; else lightText">Modo Oscuro</ng-container>
+        <ng-template #lightText>Modo Claro</ng-template>
+      </button>
+    </div>
+  </div>
+  
+
+
+  <!-- data.component.html -->
+  <div>
+    <h3>Tareas Urgentes</h3>
+    <ul *ngFor="let item of filterDataDateNotionDB; let i = index">
+      <li *ngIf="i < 3">
+        <!-- Agrega esta línea para limitar a 3 elementos -->
+        <b>Titulo</b>
+        <p>{{ item.titulo }}</p>
+      </li>
+    </ul>
+  </div>
+  <div class="table-responsive-lg scrollable-table table-container">
+    
+    <table [ngClass]="{'table-dark' : isDarkMode, 'table-light': !isDarkMode}" class="table table-dark table-striped table-bordered table-hover">
+      <thead class="">
+        <tr>
+          <th>Título</th>
+          <th>Autor</th>
+          <th>Descripción</th>
+          <th>Fecha de Subida o Modificacion</th>
+
+          <th>
+            Fecha de Realización
+
+            <form action="#">
+              <select
+                name="FRealizacion"
+                title="FRealizacion"
+                [(ngModel)]="actualDate"
+                (change)="filterDataDate()"
+              >
+                <!-- Se usa [ngValue] no [value]  -->
+                <!-- Todas -->
+                <option [ngValue]="'Todas'">Todas</option>
+
+                <!-- El dia de hoy -->
+                <option [ngValue]="'Hoy'">Hoy</option>
+                <!--la ultima semana -->
+                <option [ngValue]="'Semana'">Semana</option>
+                <!-- El ultimo mes  -->
+                <option [ngValue]="'Mes'">Mes</option>
+              </select>
+            </form>
+          </th>
+
+          <th>
+            <form action="#">
+              Estado
+
+              <select
+                name="Hecha"
+                title="Hecha"
+                [(ngModel)]="searchState"
+                (change)="filterDataState()"
+              >
+                <!-- Se usa [ngValue] no [value]  -->
+                <option [ngValue]="undefined">Todos</option>
+                <option [ngValue]="true">Realizada</option>
+                <option [ngValue]="false">Pendiente</option>
+              </select>
+            </form>
+          </th>
+
+          <th>Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let item of filterDataNotionDB">
+          <td>{{ item.titulo }}</td>
+          <td>{{ item.autor }}</td>
+          <td>{{ item.descripcion }}</td>
+          <td>{{ item.subida_o_modificada | date : "yyyy/MM/ddThh:mm" }}</td>
+          <td>{{ item.fecha_de_realizacion | date : "yyyy/MM/ddThh:mm" }}</td>
+          <td>{{ item.hecha ? "Realizada" : "Pendiente" }}</td>
+          <td>
+            <button [routerLink]="['/edit/', item.id]">Modificar</button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot class="tfoot-container" [ngClass]="{'table-dark' : isDarkMode, 'table-light': !isDarkMode}">
+        <tr>
+            <th>
+              <b> </b>
+            </th>
+            <th>
+              <b>Tareas</b>
+            </th>
+            <th>
+              <b>Pendientes</b>
+            </th>
+            <th>
+              <b>Realizadas</b>
+            </th>
+            <th>
+              <b></b>
+            </th>
+            <th>
+              <b></b>
+            </th>
+            <th>
+              <b></b>
+            </th>
+          </tr>
+          <tr>
+            <td>Totales:</td>
+            <td>{{ totalTareas }}</td>
+            <td>{{ tareasPendientes }}</td>
+            <td>{{ tareasRealizadas }}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+          </tr>
+        </tfoot>
+      </table>
+  </div>
+  <!-- Footer -->
+<app-footer/>
+</div>

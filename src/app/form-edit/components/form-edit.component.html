@@ -1,0 +1,104 @@
+<app-navigation />
+
+
+<div class="card">
+  <form class="card-body" (submit)="onSubmit()" #form="ngForm">
+    <label>Titulo</label>
+    <input
+      name="titulo"
+      class="form-control"
+      type="text"
+      placeholder="Titulo"
+      [(ngModel)]="notionDataSubmit.titulo"
+      required
+      #titulo="ngModel"
+    />
+    <p
+      class="alert alert-danger mt-2"
+      [hidden]="titulo.valid || titulo.pristine"
+    >
+      Debe escribir un titulo
+    </p>
+
+    <label>Descripcion</label>
+    <input
+      name="descripcion"
+      class="form-control"
+      type="text"
+      placeholder="Descripcion"
+      [(ngModel)]="notionDataSubmit.descripcion"
+      #descripcion="ngModel"
+      [valueAsDate]="" 
+    />
+    <p
+      class="alert alert-danger mt-2"
+      [hidden]="descripcion.valid || descripcion.pristine"
+    >
+      Debe escribir una descripcion
+    </p>
+
+    <label>Autor</label>
+    <input
+      name="autor"
+      class="form-control"
+      type="text"
+      placeholder="Autor"
+      [(ngModel)]="notionDataSubmit.autor"
+      required
+      #autor="ngModel"
+    />
+    <p class="alert alert-danger mt-2" [hidden]="autor.valid || autor.pristine">
+      Debe ingresar su nombre
+    </p>
+
+    <label>Fecha de realizacion</label>
+    <input
+      name="fechaDeRealizacion"
+      title="fechaDeRealizacion"
+      type="datetime-local"
+      class="form-control"
+      placeholder="yyyy/MM/dd"
+      required
+      [(ngModel)]="notionDataSubmit.fecha_de_realizacion"
+      #fechaDeRealizacion="ngModel"
+      />
+      
+    <p
+      class="alert alert-danger mt-2"
+      [hidden]="fechaDeRealizacion.valid || fechaDeRealizacion.pristine"
+    >
+      Debe seleccionar una fecha de realización
+    </p>
+    <label>Estado</label>
+    <div class="form-check">
+      <input
+        name="hecha"
+        title="hecha"
+        type="checkbox"
+        class="form-check-input"
+        [(ngModel)]="notionDataSubmit.hecha"
+        #hecha="ngModel"
+        required
+        id="hecha"
+      />
+      <label class="form-check-label" for="hecha">Realizada</label>
+    </div>
+    <p
+      class="alert alert-danger mt-2"
+      [hidden]="hecha.valid || hecha.pristine"
+    >
+      Debe seleccionar, si ya la realizo
+    </p>
+
+    <button
+      type="submit"
+      class="btn btn-primary mt-2"
+      [disabled]="form.invalid"
+    >
+      Guardar Cambios
+    </button>
+  </form>
+  
+<app-footer/>
+
+</div>

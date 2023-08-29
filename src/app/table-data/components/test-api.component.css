@@ -1,0 +1,48 @@
+/* ... (otros estilos existentes) ... */
+
+.table-container {
+  max-height: 450px;
+  overflow: auto;
+  margin-top: 20px; /* Ajusta según sea necesario */
+}
+.table {
+  width: 100%;
+
+}
+.tfoot-container th:first-child {
+  text-align: left; /* Alinear el texto a la izquierda */
+}
+.tfoot-container th, .tfoot-container td {
+  padding: 8px 16px; /* Espaciado interno */
+}
+.tfoot-container  {
+  font-weight: lighter;
+  text-align: center;
+  position: sticky;
+  bottom: 0; /* Fijamos en la parte inferior */
+width: auto;
+z-index: 1;
+
+}
+/* Asegurarse de que el th del thead también sea sticky */
+.table thead th {
+  position: sticky;
+  top: 0;
+  font-weight: lighter;
+  text-align: center;
+  z-index: 2; /* Asegurarse de que esté sobre el tfoot */
+
+}
+.table thead th{
+  font-weight: bold;
+}
+/* Estilos para el modo oscuro */
+.dark-mode {
+  background-color: #1c1c1c; /* Fondo oscuro */
+  color: #ffffff; /* Texto blanco */
+z-index: 0;  
+}
+
+.dark-mode table {
+  border: 1px solid #444; /* Bordes oscuros para tablas */
+}
