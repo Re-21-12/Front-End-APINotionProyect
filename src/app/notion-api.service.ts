@@ -9,8 +9,8 @@ import { NotionData } from '../app/models/notion-data-base-items/notion-data-bas
   providedIn: 'root',
 })
 export class NotionDataService {
-  private apiUrl = 'http://apinotion.somee.com/api/notion'; // Ajusta la URL de la API según tu configuración
-
+  private apiUrl = 'https://apinotion.somee.com/api/notion'; // Ajusta la URL de la API según tu configuración
+//http://apinotion.somee.com/api/notion
   constructor(private http: HttpClient) {}
 
   getDataFromNotionApi(): Observable<NotionData[]> {
